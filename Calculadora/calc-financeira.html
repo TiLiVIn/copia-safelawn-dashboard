@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Calculadora Financeira</title>
+
+</head>
+
+<body>
+
+    <div id="calcWrapper" class="calc-wrapper">
+
+        <div class="container">
+            <div id="recalc" class="calc">
+                <div class="calc-header">
+                    <img src="./logo.png" alt="logo" class="logo">
+                    <div class="text-header">
+
+                        <h1>Calculadora Financeira <b class="corEmpresa">Safe Lawn</b></h1>
+                        <p class="calc-texto">
+                            As fortes chuvas além de prejudicar o gramado, tendo que reformar e substituir, também
+                            causam
+                            multas
+                            pelos contratos com emissoras.<br>
+                            Por esses problemas criamos a empresa <b>Safe Law</b>, que visa resolver esses tipos de
+                            problemas.<br>
+
+                    </div>
+                    </p>
+                </div>
+
+                <h2>Então gostariamos de saber:</h2>
+
+                <div class="flex-input">
+                    <div class="questao">
+                        Nome do estádio: <br>
+                        <input id="input_nomeEstadio">
+                    </div>
+                    <div class="questao">
+                        Quantas vezes a partida foi cancelada por conta do alagamento?
+                        <input id="input_qtdPartidasCanceladas">
+                    </div>
+
+                    <div class="questao">
+                        Quantas vezes teve atraso nas partidas por causa do alagamento?
+                        <input id="input_qtdAtrasosPartida">
+                    </div>
+                    <div class="questao">    
+                        Qual a média (em minutos) de atraso nas partidas quando estava alagado?
+                        <input id="input_mediaAtrasoPartida">
+                    </div>
+
+                    <div class="questao">
+                        Qual era o valor da transmissão do jogo?
+                        <input id="input_custoPartida">
+                    </div>
+
+                    <div class="questao">
+                        Quantas vezes você teve que reformar e substituir o gramado danificado pela chuva?
+                        <input id="input_reformaEstadio">
+                    </div>
+                    <div class="questao">
+                        Qual foi a média de custo das reformas que você fez no gramado?
+                        <input id="input_custoReforma">
+                    </div>
+
+                    <div class="btn-wrapper">
+                        <button onclick="calcular_gasto()" class="btn-calcular"> Ver Gasto Total</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="results" class="resultado">
+            <p id="p_resultado">
+
+            </p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+    function calcular_gasto() {
+        recalc.className = "calc mostrar"
+        results.className = "resultado mostrar"
+
+
+
+        results.style = `height: ${calcWrapper.clientHeight}px;`
+        var nomeEstadio = input_nomeEstadio.value // nome do estadio
+        var qtdPartidasCanceladas = Number(input_qtdPartidasCanceladas.value) // total de partidas cancelada
+        var qtdAtrasosPartida = Number(input_qtdAtrasosPartida.value) // total de partidas atrasada
+        var mediaAtrasoMin = Number(input_mediaAtrasoPartida.value) // média total de atraso em minutos
+        var custoPartida = Number(input_custoPartida.value) // Custo da partida cancelada
+        var qtdReformas = Number(input_reformaEstadio.value) // vezes que teve que reformar o estadio
+        var custoReformas = Number(input_custoReforma.value) // custo da reforma
+
+
+        // Custo das multas do cancelamento da partidas
+        var custoTotalCancelamento = custoPartida * qtdPartidasCanceladas;
+
+        // custo atraso partida
+        var totalAtrasoMin = mediaAtrasoMin * qtdAtrasosPartida; // calcula o total de minutos atrasado
+        var custoPorMinuto = custoPartida / 90; // calcula o preço por minuto por atraso
+        var custoTotalAtraso = custoPorMinuto * totalAtrasoMin; // custo total do atraso da partida
+
+        // Custo da reformas
+        var custoTotalReforma = custoReformas * qtdReformas;
+
+        // prejuízo total
+        var prejuizoTotal = custoTotalCancelamento + custoTotalAtraso + custoTotalReforma;
+
+
+        // Resultado de multas por cancelamento
+        p_resultado.innerHTML = `
+            <h1> Análise de Gastos </h1>
+            <br>Com <b>${qtdPartidasCanceladas}</b> partida(s) cancelada(s), o estádio do(a) <b>${nomeEstadio}</b> recebeu multa(s) em torno de <b style="color: red;">R$ ${custoTotalCancelamento}</b>.<br>
+            
+        `
+        // Resultado dos atrasos em partidas
+        p_resultado.innerHTML += `
+        <br>Cada minuto de atraso na partida custou em torno de <b>R$ ${custoPorMinuto}</b>.
+            <br> Você atrasou <b>${qtdAtrasosPartida}</b> partida(s), em média cada partida atrasou <b>${mediaAtrasoMin}</b> minutos, no geral você atrasou <b>${totalAtrasoMin}</b> minutos. Então você teve que pagar no total <b style="color: red;">R$ ${custoTotalAtraso}</b>.<br>
+        
+        `
+        // Resultado da reforma no estádio
+        p_resultado.innerHTML += `
+        <br> O <b>${nomeEstadio}</b> teve que ser reformado <b>${qtdReformas}</b> vez(es) por conta de alagamentos.
+        <br>Cada reforma e substituição do gramado custou em torno de <b>R$ ${custoReformas}</b>, sendo assim, você gastou em em torno de <b style="color: red;">R$ ${custoTotalReforma}</b> com reformas e substituições.<br>
+
+        `
+        // Prejuízo total
+        p_resultado.innerHTML += `
+        <br>O estádio do(a) <b>${nomeEstadio}</b> Teve bastante prejuízo com cancelamentos, atrasos e reformas.
+        <br> <b>No total, o(a) ${nomeEstadio} teve um prejuizo de <b style="color: red;">R$ ${prejuizoTotal}</b></b>
+        `
+
+
+        // exibir que poderia ser evidado nos contratando
+        p_resultado.innerHTML += `
+            <br><h2 class="corEmpresa">Todos esses prejuízos podem ser reduzidos e até zerados ao contratar nossa empresa!!</h2>
+        `;
+
+    }
+</script>

@@ -1,0 +1,134 @@
+*{margin:0}
+
+/* CALCULADORA */
+
+.calc-wrapper {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('./fundo.png');
+    font-family: Lexend,'Roboto Condensed', K2d;
+    color: white;
+}
+
+.calc-wrapper .container {
+    width: 80%;
+    height: 100%;
+    border:none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calc {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+.calc .calc-texto {
+    font-size: 14px;
+}
+
+.logo {
+    width: 128px;
+    height: 128px;
+}
+
+.calc-header {
+    display: flex;
+}
+
+.calc-header div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.flex-input{
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.text-header{
+    width: 80%;
+}
+
+.questao {
+    width: 80%;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    text-align: left;
+    margin: 2px 0;
+}
+
+.questao input {
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px 2px;
+    border-radius: 8px;
+}
+
+
+.btn-calcular {
+    font-family: Lexend,'Roboto Condensed', K2d;
+    font-size: 20px;
+    color: #ffffff;
+    border-radius: 8px;
+    border: none;
+    justify-content: center;
+    background-color: #1ECE43;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn-calcular:hover{
+    background-color: #172C20;
+    color:white
+}
+
+/* RESULTADO */
+
+.resultado {
+    width: 30%;
+    height: 100vh;
+    font-family: Lexend,'Roboto Condensed', K2d;
+    background-color: #172C20;
+    color: white;
+    text-align: center;
+    align-items:center;
+    justify-content: center;
+    display:none;
+    font-size: 15px;
+}
+
+.corEmpresa {
+    color: #1ECE43;
+}
+
+.mostrar.calc{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.mostrar.resultado{
+    display: flex;
+    width: 40%;
+    padding: 0px 10px;
+    flex-direction: column;
+}

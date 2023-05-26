@@ -1,0 +1,172 @@
+/* SOBRE NÓS */
+.informacoes-conteudo-pagina {
+    width: 100%;
+    height: 130vh;
+    transition: 0.3s ease-in-out;
+    }
+
+#sobre-nos-texto {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-left: -2vw;
+    margin-top: 4%;
+}
+
+#titulo-sobre-nos {
+    font-size: 50px;
+    font-family: 'Lexend' ,Arial, Helvetica, sans-serif;
+    height: 100%;
+}
+
+.logo-topo-esquerda {
+    display: flex;
+    width: 120px;
+    height: 150px;
+    margin-left: -5vw;
+}
+
+#logo-empresa {
+    width: 125px;
+}
+
+#div_texto-sobre-nos {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif; 
+    margin: 20px 0 50px;
+}
+
+#p_texto-sobre-nos {
+    width: 40vw; 
+}
+
+.cards-container-geral {
+    display: flex;
+    justify-content: center;
+    padding-top: 3vh;
+    width: 100%;
+    margin-top: 10vh;
+}
+
+.cards-container-home-blocos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.cards-blocos {
+    background-color: #E0E0E0;
+    box-shadow: 5px 5px #888888bd;
+    width: 27.5%;
+    display: flex;
+    height: 300px;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3vh;
+    border-radius: 30px;
+    transition: .3s ease-in-out;
+}
+
+.titulo-cards-blocos {
+    font-family: 'Lexend', Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    font-weight: 550;
+
+}
+
+.imgs-cards {
+    width: 65%;
+    margin-top: 3vh;
+}
+
+.texto-cards-blocos {
+    text-align: center;
+    font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+    width: 80%;
+    margin: auto 0;
+    font-size: 20px;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s ease-in-out;
+}
+
+/*EFEITO HOVER NOS CARDS*/
+
+.cards-blocos:hover {
+    height: 425px;
+}
+
+.cards-blocos:hover .texto-cards-blocos {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0.1s;
+}
+
+/* NOSSA EQUIPE */
+.nossa-equipe {
+    background-image: url('../../assets/Imagens/nossa_equipe_bg.png');
+    padding: 50px 150px;
+}
+
+.equipe-titulo {
+    color: #FFFFFF;
+    font-family: 'Lexend';
+    font-size: 40px;
+    text-align: center;
+    margin: 20px;
+}
+
+.equipe-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.equipe-linha {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.equipe-linha:nth-child(2) {
+    justify-content: space-around;
+}
+
+.equipe-linha:nth-child(4) {
+    justify-content: space-between;
+}
+
+.equipe-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: #FFFFFF;
+    font-family: 'K2D';
+}
+
+.equipe-foto {
+    width: 125px;
+    border-radius: 100%;
+}
+
+.equipe-contato-a {
+    text-decoration: none;
+}
+
+.equipe-contato-img {
+    transition: all ease-in-out .25s;
+    width: 30px;
+    margin: 5px;
+}
+
+.equipe-contato-img:hover {
+    transform: scale(1.25);
+}
