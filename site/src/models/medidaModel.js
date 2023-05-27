@@ -257,7 +257,7 @@ function buscarMedidasEmTempoRealSetores(idEstadio) {
             JOIN SetorEstadio ON fkSetor= idSetor
             JOIN Estadio ON fkEstadio = idEstadio
                 WHERE idEstadio = ${idEstadio}
-                    ORDER BY dtCaptura DESC;
+                    ORDER BY dtCaptura DESC LIMIT 4;
         `;
 
         // instrucaoSql = `
