@@ -1,160 +1,167 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
-    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
-    <script src="../js/dashboard.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="https://desk.zoho.com/portal/api/feedbackwidget/861047000000250005?orgId=811102377&displayType=popout"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+  <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+  <script src="../js/dashboard.js"></script>
 
-    <script src="../js/funcoes.js"></script>
-    <link rel="stylesheet" href="../Estilo/dashboard.css" />
-    <link
-      rel="shortcut icon"
-      href="../assets/Imagens/logo_imagem.png"
-      type="image/x-icon"
-    />
-    <title>Safe Lawn - Dashboard</title>
-  </head>
+  <script
+    src="https://desk.zoho.com/portal/api/feedbackwidget/861047000000250005?orgId=811102377&displayType=popout"></script>
 
-  <body>
-    <div class="dashboard-section">
-      <div class="sidebar">
-        <div class="sidebar-header">
-          <a href="../index.html">
-            <img
-              src="../assets/Imagens/logo_imagem.png"
-              alt="logo safe lawn"
-              class="logo"
-            />
-          </a>
-          <div class="perfil">
-            <img
-              src="../assets/Imagens/perfil.png"
-              alt="imagem de perfil"
-              class="img-perfil"
-            />
-            <p class="nome-perfil">Nome Estádio</p>
-            <span class="desc-perfil">Desc Estádio</span>
+  <script src="../js/funcoes.js"></script>
+  <link rel="stylesheet" href="../Estilo/dashboard.css" />
+  <link rel="shortcut icon" href="../assets/Imagens/logo_imagem.png" type="image/x-icon" />
+  <title>Safe Lawn - Dashboard</title>
+</head>
+
+<body>
+  <div class="dashboard-section">
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html">
+          <img src="../assets/Imagens/logo_imagem.png" alt="logo safe lawn" class="logo" />
+        </a>
+        <div class="perfil">
+          <img src="../assets/Imagens/perfil.png" alt="imagem de perfil" class="img-perfil" />
+          <p class="nome-perfil">Nome Estádio</p>
+          <span class="desc-perfil">Desc Estádio</span>
+        </div>
+      </div>
+      <ul class="options">
+        <li class="list-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="list-item">
+          <a href="#">Norte-Leste</a>
+        </li>
+        <li class="list-item">
+          <a href="#">Norte-Oeste</a>
+        </li>
+        <li class="list-item">
+          <a href="#">Sul-Leste</a>
+        </li>
+        <li class="list-item">
+          <a href="#">Sul-Oeste</a>
+        </li>
+      </ul>
+    </div>
+    <div class="dashboard-wrapper">
+      <div class="container">
+        <div class="grupo-card">
+          <div class="card card-sensores">
+            <div>
+              <span class="card-date">24/04/2023 - 13:55</span>
+              <h3>Sensores em campo</h3>
+            </div>
+
+            <div class="row">
+              <img src="../assets/icon/icone-sensor.png" alt="Icone Sensor" />
+              <h2 class="dados-card">4</h2>
+            </div>
+          </div>
+          <div class="card card-umidade" id="card_umidade">
+            <div>
+              <span class="card-date">24/04/2023 - 13:55</span>
+              <h3 id="titulo_umidade">Umidade do campo</h3>
+            </div>
+
+            <div class="row">
+              <img src="../assets/icon/icone-umidade.png" alt="Icone Umidade" />
+              <h2 class="dados-card" id="dados_umidade">33%</h2>
+            </div>
+          </div>
+          <div class="card card-jogabilidade">
+            <div>
+              <span class="card-date">24/04/2023 - 13:55</span>
+              <h3>Jogabilidade</h3>
+            </div>
+
+            <div class="row">
+              <section class="graficoJogabilidade">
+                <canvas id="jogabilidade"></canvas>
+              </section>
+              <h2 class="dados-card">97%</h2>
+            </div>
           </div>
         </div>
-        <ul class="options">
-          <li class="list-item">
-            <a href="#">Dashboard</a>
-          </li>
-          <li class="list-item">
-            <a href="#">Norte-Leste</a>
-          </li>
-          <li class="list-item">
-            <a href="#">Norte-Oeste</a>
-          </li>
-          <li class="list-item">
-            <a href="#">Sul-Leste</a>
-          </li>
-          <li class="list-item">
-            <a href="#">Sul-Oeste</a>
-          </li>
-        </ul>
-      </div>
-      <div class="dashboard-wrapper">
-        <div class="container">
-          <div class="grupo-card">
-            <div class="card card-sensores">
-              <div>
-                <span class="card-date">24/04/2023 - 13:55</span>
-                <h3>Sensores em campo</h3>
-              </div>
-
-              <div class="row">
-                <img src="../assets/icon/icone-sensor.png" alt="Icone Sensor" />
-                <h2 class="dados-card">4</h2>
-              </div>
+        <br />
+        <div class="graficos-container">
+          <div id="grafico1" class="display-block">
+            <h3 class="tituloGraficos">
+              <span id="tituloAquario1"></span>
+            </h3>
+            <div class="graph">
+              <canvas id="myChartCanvas1"></canvas>
             </div>
-            <div class="card card-umidade" id="card_umidade">
-              <div>
-                <span class="card-date">24/04/2023 - 13:55</span>
-                <h3 id="titulo_umidade">Umidade do campo</h3>
-              </div>
-
-              <div class="row">
-                <img
-                  src="../assets/icon/icone-umidade.png"
-                  alt="Icone Umidade"
-                />
-                <h2 class="dados-card" id="dados_umidade">33%</h2>
-              </div>
-            </div>
-            <div class="card card-jogabilidade">
-              <div>
-                <span class="card-date">24/04/2023 - 13:55</span>
-                <h3>Jogabilidade</h3>
-              </div>
-
-              <div class="row">
-                <section class="graficoJogabilidade">
-                  <canvas id="jogabilidade"></canvas>
-                </section>
-                <h2 class="dados-card">97%</h2>
-              </div>
+            <div class="label-captura">
+              <p id="avisoCaptura1" style="color: white"></p>
             </div>
           </div>
-          <br />
-          <div class="graficos-container">
-            <div id="grafico1" class="display-block">
-              <h3 class="tituloGraficos">
-                <span id="tituloAquario1"></span>
-              </h3>
-              <div class="graph">
-                <canvas id="myChartCanvas1"></canvas>
-              </div>
-              <div class="label-captura">
-                <p id="avisoCaptura1" style="color: white"></p>
-              </div>
-            </div>
 
-            <!-- <div id="grafico_geral" class="grafico">
+          <!-- <div id="grafico_geral" class="grafico">
                         <canvas id="dht11Umidade"></canvas>
                     </div> -->
 
-            <!-- <div id="grafico_historico" class="grafico">
+          <!-- <div id="grafico_historico" class="grafico">
                         <canvas id="historico"></canvas>
                     </div> -->
-          </div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
 
 <script>
 
-function filtrarSetor(resposta) {
-  var mapeamentoSetores = [];
-  var setores = [[], [], [], []];
+  function mapeamentoSetores(resposta) {
+    var mapeamentoSetores = [];
 
-  for (var i = 0; i < resposta.length; i++) {
-    var registro = resposta[i];
-    var idSetor = registro.idSetor;
+    for (var i = 0; i < resposta.length; i++) {
+      var registro = resposta[i];
+      var idSetor = registro.idSetor;
 
-    if (!mapeamentoSetores.includes(idSetor)) {
-      mapeamentoSetores.push(idSetor);
+      if (!mapeamentoSetores.includes(idSetor)) {
+        if (idSetor > mapeamentoSetores[i]) {
+          mapeamentoSetores.push(idSetor);
+        } else {
+          mapeamentoSetores.unshift(idSetor);
+        }
+      }
     }
 
-    if (mapeamentoSetores.includes(idSetor)) {
-      var indiceSetor = mapeamentoSetores.indexOf(idSetor);
-      setores[indiceSetor].push(registro);
-    }
+    return filtrarSetor(mapeamentoSetores, resposta);
+
   }
 
-  console.log(mapeamentoSetores);
 
-  return setores;
-}
+  function filtrarSetor(mapeamentoSetores, resposta) {
+    
+    var setores = [[], [], [], []];
+
+    for (var i = 0; i < resposta.length; i++) {
+      var registro = resposta[i];
+      var idSetor = registro.idSetor;
+
+
+
+      if (mapeamentoSetores.includes(idSetor)) {
+        var indiceSetor = mapeamentoSetores.indexOf(idSetor);
+        setores[indiceSetor].push(registro);
+      }
+    }
+
+    console.log(mapeamentoSetores);
+
+    return setores;
+  }
 
 
   let proximaAtualizacao;
@@ -179,7 +186,7 @@ function filtrarSetor(resposta) {
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             resposta.reverse();
 
-            var setores = filtrarSetor(resposta);
+            var setores = mapeamentoSetores(resposta);
             plotarGrafico(setores);
           });
         } else {
@@ -204,6 +211,8 @@ function filtrarSetor(resposta) {
       datasets: [],
     };
 
+    var horario = [];
+
     for (var posicaoSetor = 0; posicaoSetor < setores.length; posicaoSetor++) {
       var setor = setores[posicaoSetor];
 
@@ -218,7 +227,10 @@ function filtrarSetor(resposta) {
 
       for (var j = 0; j < setor.length; j++) {
         var registro = setor[j];
-        labels.push(registro.momento_grafico);
+        if (!horario.includes(registro.momento_grafico)) {
+          horario.push(registro.momento_grafico);
+          labels.push(registro.momento_grafico);
+        }
         dataset.data.push(registro.umidade);
       }
 
@@ -248,7 +260,7 @@ function filtrarSetor(resposta) {
         if (response.ok) {
           response.json().then(function (novoRegistro) {
             console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-            var setores = filtrarSetor(novoRegistro);
+            var setores = mapeamentoSetores(novoRegistro).reverse();
             console.log("Dados atuais do gráfico:");
             console.log(dados);
 
@@ -281,6 +293,7 @@ function filtrarSetor(resposta) {
                 var dataset = dados.datasets[i];
                 var setor = setores[i];
                 dataset.data.shift();
+
 
                 if (setor.length > 0) {
                   var ultimoRegistroSetor = setor[setor.length - 1];

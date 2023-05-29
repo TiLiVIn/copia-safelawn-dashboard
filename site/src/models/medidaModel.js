@@ -31,7 +31,7 @@ function buscarUltimasMedidasSetores(idEstadio) {
         Sensor ON fkSensor = idSensor 
         JOIN SetorEstadio ON fkSetor = idSetor
         JOIN Estadio ON fkEstadio = idEstadio
-            WHERE idEstadio = ${idEstadio};
+            WHERE idEstadio = ${idEstadio} ORDER BY dtCaptura DESC LIMIT 12;
         `; 
         
 
@@ -75,7 +75,7 @@ function buscarUltimasMedidas1(idEstadio, limite_linhas) {
             Sensor ON fkSensor = idSensor 
             JOIN SetorEstadio ON fkSetor = idSetor
             JOIN Estadio ON fkEstadio = idEstadio
-                WHERE idEstadio = ${idEstadio} AND idSetor = 1;
+                WHERE idEstadio = ${idEstadio} AND idSetor = 1 LIMIT 12;
         `; 
         
 
